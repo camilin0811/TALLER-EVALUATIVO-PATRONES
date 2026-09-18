@@ -1,0 +1,60 @@
+=== SECRETARIA DE AMBIENTE - RED DE CALIDAD DEL AIRE ===
+Config modelo 'Zona residencial' umbral PM2.5=37.5 tareas: 3
+  Estacion Parque Centenario     umbral PM2.5=37.5 tareas: 3
+  Estacion Colegio San Jose      umbral PM2.5=25.0 tareas: 4  <- modificada
+  Verificacion del modelo -> umbral PM2.5=37.5 tareas: 3 (intacto)
+  Verificacion del clon hermano -> umbral PM2.5=37.5 tareas: 3 (intacto)
+  Mapas de umbrales distintos: true | listas de tareas distintas: true
+
+--- PROCESAMIENTO POR ESTACION ---
+[Parque Centenario] tipo FIJO_REFERENCIA - reference method analyzer (factor 1.02)
+   PM2.5 descartadas: 1 | validas: 23 de 24 -> VALIDO
+   PM2.5 promedio 24h: 11.31 -> ICA 47 (Buena)
+   O3    descartadas: 0 | validas: 24 de 24 -> VALIDO
+   O3    promedio 24h: 16.06 -> ICA 15 (Buena)
+   NO2   descartadas: 0 | validas: 24 de 24 -> VALIDO
+   NO2   promedio 24h: 20.66 -> ICA 19 (Buena)
+
+[Av. Quebradaseca] tipo FIJO_REFERENCIA - reference method analyzer (factor 1.01)
+   PM2.5 descartadas: 0 | validas: 24 de 24 -> VALIDO
+   PM2.5 promedio 24h: 28.58 -> ICA 83 (Aceptable)
+   O3    validas: 15 de 24 -> DATO INSUFICIENTE
+   NO2   descartadas: 0 | validas: 24 de 24 -> VALIDO
+   NO2   promedio 24h: 52.10 -> ICA 49 (Buena)
+
+[Unidad movil - Zona Ind.] tipo MOVIL - portable optical analyzer (transport drift)
+   PM2.5 descartadas: 2 | validas: 22 de 24 -> VALIDO
+   PM2.5 promedio 24h: 15.62 -> ICA 58 (Aceptable)
+   O3    descartadas: 0 | validas: 24 de 24 -> VALIDO
+   O3    promedio 24h: 21.68 -> ICA 20 (Buena)
+   NO2   descartadas: 0 | validas: 24 de 24 -> VALIDO
+   NO2   promedio 24h: 27.53 -> ICA 26 (Buena)
+
+[Colegio San Jose] tipo BAJO_COSTO - low cost sensor with humidity correction
+   h07 cruda 58.49 HR 88 % -> corregida 50.60
+   h08 cruda 56.93 HR 88 % -> corregida 49.25
+   h09 cruda 44.09 HR 88 % -> corregida 38.14
+   PM2.5 descartadas: 2 | validas: 22 de 24 -> VALIDO
+   PM2.5 promedio 24h: 46.86 -> ICA 127 (Danina a grupos sensibles)
+   O3    descartadas: 0 | validas: 24 de 24 -> VALIDO
+   O3    promedio 24h: 63.20 -> ICA 78 (Aceptable)
+   NO2   descartadas: 0 | validas: 24 de 24 -> VALIDO
+   NO2   promedio 24h: 79.97 -> ICA 79 (Aceptable)
+
+
+--- BOLETIN DIARIO 2026-08-14 ---
+Emite: Secretaria de Ambiente Municipal
+#  ESTACION                    ICA CATEGORIA                    CRITICO
+1  Colegio San Jose            127 Danina a grupos sensibles    PM2.5
+2  Av. Quebradaseca             83 Aceptable                    PM2.5
+3  Unidad movil - Zona Ind.     58 Aceptable                    PM2.5
+4  Parque Centenario            47 Buena                        PM2.5
+ICA de la ciudad: 127 (Danina a grupos sensibles)
+Cobertura de datos validos de la red: 95.1 %
+Recomendaciones: personas con asma y ninos deben evitar actividad fisica al aire libre
+Pronostico manana: condiciones estables, sin lluvias significativas
+Responsable: Direccion de Calidad Ambiental
+Nota metodologica: ICA interpolado por tramos segun tabla vigente
+
+--- VALIDACION DEL BUILDER ---
+IllegalStateException -> categoria 'Danina a la salud' exige recomendaciones a poblacion sensible
