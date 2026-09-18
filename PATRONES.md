@@ -1,15 +1,15 @@
 # Patrones aplicados
 
-Caso 3 — Red municipal de monitoreo de calidad del aire.
+Caso 3 Red municipal de monitoreo de calidad del aire.
 
 ## Factory Method
 
-**Ubicacion:** `src/puesto/PuestoDeMonitoreo.java` (Creator), `PuestoFijoReferencia`,
+Ubicacion: `src/puesto/PuestoDeMonitoreo.java` (Creator), `PuestoFijoReferencia`,
 `PuestoMovil`, `PuestoBajoCosto` (ConcreteCreator). Productos en `src/analizador/`:
 `Analizador` (Product), `AnalizadorReferencia`, `AnalizadorOpticoPortatil`,
 `AnalizadorBajoCosto` (ConcreteProduct).
 
-**Justificacion:** cada tipo de puesto instala un analizador distinto para el mismo
+Justificacion: cada tipo de puesto instala un analizador distinto para el mismo
 contaminante, y lo unico que cambia entre puestos es esa correccion. `procesarJornada`
 vive una sola vez en la clase abstracta y orquesta el proceso completo (descartar
 invalidas, corregir, verificar validez, promediar) sin saber que analizador le toco:
@@ -21,10 +21,10 @@ toca ni una linea de `procesarJornada`.
 
 ## Prototype
 
-**Ubicacion:** `src/configuracion/ConfiguracionEstacion.java` y
+Ubicacion: `src/configuracion/ConfiguracionEstacion.java` y
 `src/configuracion/TareaMantenimiento.java`.
 
-**Justificacion:** configurar una estacion desde cero tomaba dos dias cuando el 90 % es
+Justificacion: configurar una estacion desde cero tomaba dos dias cuando el 90 % es
 identico a otra ya existente. La Secretaria mantiene configuraciones modelo por tipo de
 zona y al desplegar una estacion nueva se clona el modelo y se ajusta.
 
@@ -39,10 +39,10 @@ y agregar una tarea en uno de ellos no altera ni el modelo ni el clon hermano.
 
 ## Builder
 
-**Ubicacion:** `src/boletin/BoletinDiario.java` (clase inmutable + `Builder` estatico
+Ubicacion: `src/boletin/BoletinDiario.java` (clase inmutable + `Builder` estatico
 anidado).
 
-**Justificacion:** el boletin tiene cinco campos obligatorios y cinco opcionales. Un
+Justificacion: el boletin tiene cinco campos obligatorios y cinco opcionales. Un
 constructor telescopico con diez parametros seria ilegible y permitiria construir un
 boletin invalido; el Builder da una API fluida donde cada campo se nombra en la llamada.
 
